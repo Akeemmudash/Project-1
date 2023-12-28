@@ -27,24 +27,9 @@ export const routes = [
     nodeRef: createRef(),
   },
   {
-    path: `blog`,
+    path: `blog/:pageno?`,
     element: <Blog />,
     nodeRef: createRef(),
-    children: [
-      {
-        element: <BlogBody />,
-        index: true,
-      },
-      {
-        path:"1",
-        element:<Navigate to="/blog/" replace/>
-      },
-
-      {
-        path: `:pageno`,
-        element: <BlogBody />,
-      },
-    ],
   },
 {
   path: `blog/read`,

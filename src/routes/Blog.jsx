@@ -9,7 +9,7 @@ export default function Blog() {
         BYC AFRICA Blog News
       </h2>
       <div className="blog-news-body">
-        <Outlet />
+        <BlogBody/>
       </div>
       <div className="mt-20 pb-4">
         <Pagination />

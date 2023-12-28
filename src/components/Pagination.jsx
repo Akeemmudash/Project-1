@@ -35,29 +35,15 @@ export function Pagination() {
       </button>
 
       {pages.map((page, index) => {
-        const path = `/blog${index === 0 ? "" : "/" + (index + 1)}`;
-        const pattern = {
-          path: "/blog/",
-          caseSensitive: false,
-          end: true,
-        };
+        const path = `/blog${"/" + (index + 1)}`;
 
-        const pathname = location.pathname;
-        const match = matchPath(pattern, pathname);
-        function condition(isActive) {
-          if (index === 0) {
-            return isActive && match;
-          } else {
-            return isActive;
-          }
-        }
         return (
           <NavLink
             to={path}
             key={index}
             className={({ isActive }) =>
               `shadow-md w-11 h-11 inline-flex justify-center items-center ${
-                condition(isActive) ? "outline-amber-400 outline-1 outline" : ""
+                isActive ? "outline-amber-400 outline-1 outline" : ""
               }`
             }
           >
