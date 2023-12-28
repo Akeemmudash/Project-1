@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+* {
+  font-family: "Jost", sans-serif;
+}
+body {
+  min-height: 100vh;
+}
+#search-bar {
+  animation: 0.2s fadeIn ease-in;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+.bg-black {
+  background-color: black;
+}
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  /* Other styling for disabled elements */
+}
+
+.sidebar{
+  /* animation: slide 300ms ease-in-out; */
+}
+@keyframes slide {
+  0%{
+    left:-200%;
+  }
+  100%{
+    left: 0;
+  }
+}
+.page {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+.page-enter {
+  opacity: 0;
+  overflow: hidden;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 400ms;
+  overflow: hidden;
+}
+
+.page-exit {
+  opacity: 1;
+  overflow: hidden;
+ 
+}
+
+.page-exit-active {
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 400ms;
+}
+.crumb:hover::after{
+text-decoration: none!important;
+}
