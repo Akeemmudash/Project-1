@@ -1,6 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import blogImage from "../assets/blogImage1.png";
 import { SmallBlogCard } from "./routesComponents/Blog/BlogCard";
+import { Pagination } from "../components/Pagination";
+import BreadCrumbs  from "../components/BreadCrumbs";
 export default function ReadBlog() {
   return (
     <section className=" mx-auto md:container">
@@ -51,42 +53,20 @@ export default function ReadBlog() {
         <h3 className="text-2xl text-center font-bold lg:text-4xl mb-10">
           More Blog News
         </h3>
-        <div className="flex  justify-center md:justify-between gap-10 flex-wrap   lg:flex-nowrap">
-          <SmallBlogCard imgUrl={blogImage} className={""} />
-          <SmallBlogCard imgUrl={blogImage} className={""} />
-          <SmallBlogCard imgUrl={blogImage} className={"mx-auto last:mx-0"} />
-        </div>
+        <Outlet />
+      </div>
+      <div className="py-7">
+        <Pagination pathroute={"/blog/read"} />
       </div>
     </section>
   );
 }
-function BreadCrumbs() {
-  const location = useLocation();
-  let crumbLink = "";
-  const locations = location.pathname
-    .split("/")
-    .filter((crumb) => crumb !== "");
-  const crumbs = locations.map((crumb) => {
-    crumbLink += `/${crumb}`;
-    return (
-      <Link
-        to={crumbLink}
-        key={crumb}
-        className="capitalize crumb text-sm after:content-['>'] inline-block last:after:content-none after:pointer-events-none after:mx-1 "
-      >
-        <span className="hover:underline text-center"> {crumb}</span>
-      </Link>
-    );
-  });
-  const absoluteCrumbs = [
-    <Link
-      to="/"
-      key={"home"}
-      className="crumb text-sm after:content-['>'] after:mx-1"
-    >
-      <span className="hover:underline">Home</span>
-    </Link>,
-  ].concat(crumbs);
-
-  return <nav className="text-gray-600">{absoluteCrumbs}</nav>;
+export function MoreBlogNews() {
+  return (
+    <div className="flex  justify-center md:justify-between gap-10 flex-wrap   lg:flex-nowrap">
+      <SmallBlogCard imgUrl={blogImage} className={""} />
+      <SmallBlogCard imgUrl={blogImage} className={""} />
+      <SmallBlogCard imgUrl={blogImage} className={"mx-auto last:mx-0"} />
+    </div>
+  );
 }

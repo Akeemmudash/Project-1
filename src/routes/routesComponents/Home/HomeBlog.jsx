@@ -19,7 +19,7 @@ export default function Blog() {
         <SmallBlogCard imgUrl={blogImage2} className="inline-block" />
       </div>
       <div className=" mt-14 mx-auto text-center">
-        <Button to="blog/read" className="font-bold w-40 md:w-56">
+        <Button to="blog/read/bdbdb" className="font-bold w-40 md:w-56">
           View all
         </Button>
       </div>
@@ -59,7 +59,7 @@ export function BlogAuthor({ className }) {
 
 export function BlogButton() {
   return (
-    <Button className="px-4 text-sm font-semibold group" to="/blog/read">
+    <Button className="px-4 text-sm font-semibold group" to="/blog/read/hyhyy">
       <span>Read More</span> &nbsp;
       <img
         src={Arrow}

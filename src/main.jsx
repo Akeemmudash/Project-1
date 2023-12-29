@@ -2,7 +2,8 @@ import React, { createRef } from "react";
 import ReactDOM from "react-dom/client";
 import Home from "./routes/Home.jsx";
 import Blog, { BlogBody } from "./routes/Blog.jsx";
-import ReadBlog from "./routes/ReadBlog.jsx";
+import ReadBlog, { MoreBlogNews } from "./routes/ReadBlog.jsx";
+import About from "./routes/About.jsx";
 import { Category } from "./routes/routesComponents/Home/Category.jsx";
 import Shop from "./routes/Shop.jsx";
 // import App from "./App.jsx";
@@ -27,15 +28,36 @@ export const routes = [
     nodeRef: createRef(),
   },
   {
-    path: `blog/:pageno?`,
+    path: `blog`,
     element: <Blog />,
     nodeRef: createRef(),
+    children: [
+      {
+        element: <BlogBody />,
+        index: true,
+      },
+      {
+        path: "1",
+        element: <Navigate to="/blog/" replace />,
+      },
+
+      {
+        path: `:pageno?`,
+        element: <BlogBody />,
+      },
+    ],
   },
-{
-  path: `blog/read`,
-  element: <ReadBlog/>,
-  nodeRef: createRef(),
-},
+  {
+    path: `blog/read/:blogId`,
+    element: <ReadBlog />,
+    nodeRef: createRef(),
+    children: [
+      {
+        path: ":pageno?",
+        element: <MoreBlogNews />,
+      },
+    ],
+  },
   {
     path: "faq",
     element: <div>faq</div>,
@@ -43,7 +65,7 @@ export const routes = [
   },
   {
     path: "about",
-    element: <div>About Us</div>,
+    element: <About/>,
     nodeRef: createRef(),
   },
   {
