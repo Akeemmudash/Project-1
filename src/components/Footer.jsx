@@ -1,4 +1,4 @@
-// import paypal from "../assets/Paypal.svg";
+import paypal from "../assets/Paypal.svg";
 import masterCard from "../assets/MasterCard.svg";
 import visa from "../assets/Visa.svg";
 import mail from "../assets/Mail.svg";
@@ -81,7 +81,7 @@ export default function Footer() {
               <ul className="flex gap-2 mb-2">
                 <li>
                   <Link>
-                    {/* <img src={paypal} alt="" /> */}
+                    <img src={paypal} alt="" />
                   </Link>
                 </li>
                 <li>
