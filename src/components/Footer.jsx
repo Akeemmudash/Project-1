@@ -1,4 +1,4 @@
-import paypal from "../assets/Paypal.svg";
+import paypal from "../assets/PayPal.svg";
 import masterCard from "../assets/MasterCard.svg";
 import visa from "../assets/Visa.svg";
 import mail from "../assets/Mail.svg";
