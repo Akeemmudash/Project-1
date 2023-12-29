@@ -3,10 +3,6 @@ import featureImage1 from "../../../assets/feature_img1.png";
 import featureImage2 from "../../../assets/feature_img2.png";
 import featureImage3 from "../../../assets/feature_img3.png";
 import Button from "../../../components/Button";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
 function HeroHeading() {
   const [changingText, setChangingText] = useState("yourself");
   const [index, setIndex] = useState(0);
@@ -32,7 +28,7 @@ function HeroHeading() {
 }
 export default function Hero() {
   return (
-    <section  id="hero" className="hero md:container mx-auto mb-28 ">
+    <section id="hero" className="hero md:container mx-auto mb-28 ">
       <hgroup className="mb-10">
         <h2 className=" 2xs:text-lg xs:text-xl sm:text-2xl text-center  mb-3 sm:mb-6">
           Your body deserves Comfort
